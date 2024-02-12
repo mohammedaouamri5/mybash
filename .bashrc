@@ -110,7 +110,13 @@ alias web='cd /var/www/html'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Edit this .bashrc file
-alias ebrc='edit ~/.bashrc'
+alias ebrc='code . ~/.bashrc'
+
+
+
+alias to_dev_main='cd ~/DEV'
+alias to_dev_disk='cd /media/mohammedaouamri/6C88E0C688E08FBE/DEV'
+
 
 # Show help for this .bashrc file
 alias hlp='less ~/.bashrc_help'
@@ -145,6 +151,41 @@ alias .....='cd ../../../..'
 # cd into the old directory
 alias bd='cd "$OLDPWD"'
 
+
+box_command_output() {
+    # Evaluate the command and capture the colored output
+    output=$(eval "$1")
+
+    # Extract color codes from the output
+    color_start=$(echo -e "$output" | sed -n 's/.*\(\x1B\[[0-9;]*[mK]\).*$/\1/p')
+    color_end=$(echo -e "$output" | sed -n 's/.*\(\x1B\[0m\).*$/\1/p')
+
+    # Remove color codes for box width calculation
+    output_no_color=$(echo -e "$output" | sed 's/\x1B\[[0-9;]*[mK]//g')
+    box_width=$((${#output_no_color} + 4))  # Calculate box width based on output length
+
+    # Print the top border with color codes
+    echo -e "${color_start}+\c"
+    for ((i=0; i<$box_width; i++)); do
+        echo -e "${color_start}-\c"
+    done
+    echo -e "+${color_end}"
+
+    # Print the content with side borders and preserve color codes
+    echo -e "${color_start}|${color_end} $output ${color_start}|${color_end}"
+
+    # Print the bottom border with color codes
+    echo -e "${color_start}+\c"
+    for ((i=0; i<$box_width; i++)); do
+        echo -e "${color_start}-\c"
+    done
+    echo -e "+${color_end}"
+}
+
+# Example usage:
+alias boxed_ls='box_command_output "ls --color=auto"'
+
+
 # Remove a directory and all files
 alias rmd='/bin/rm  --recursive --force --verbose '
 
@@ -159,7 +200,6 @@ alias lr='ls -lRh' # recursive ls
 alias lt='ls -ltrh' # sort by date
 alias lm='ls -alh |more' # pipe through 'more'
 alias lw='ls -xAh' # wide listing format
-alias ll='ls -Fls' # long listing format
 alias labc='ls -lap' #alphabetical sort
 alias lf="ls -l | egrep -v '^d'" # files only
 alias ldir="ls -l | egrep '^d'" # directories only
@@ -254,6 +294,12 @@ sedit ()
 		sudo nvim "$@"
 	fi
 }
+
+
+alias ls='exa --icons -F -H --group-directories-first --git -1'
+
+alias ll='ls -alF'
+
 
 # Extracts any archive(s) (if unp isn't installed)
 extract () {
@@ -684,3 +730,7 @@ else
 	echo "can't found the autojump script"
 fi
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

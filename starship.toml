@@ -1,5 +1,6 @@
+#                                 
 format = """
-[](#3B4252)\
+[╭](#3B4252)\
 $python\
 $username\
 [](bg:#434C5E fg:#3B4252)\
@@ -21,9 +22,32 @@ $rust\
 [](fg:#86BBD8 bg:#06969A)\
 $docker_context\
 [](fg:#06969A bg:#33658A)\
+[](#33658A)\
+$fill\
+$fill\
+$fill\
+$fill\
+$fill\
+$fill\
+$cmd_duration\
+$character\
+$fill\
+$fill\
+$fill\
+$fill\
+$fill\
+$fill\
+[](#33658A)\
 $time\
-[ ](fg:#33658A)\
+[\n│](fg:#33658A)\
+[\n╰────  ](fg:#33658A)\
 """
+
+[fill]
+symbol = ' '
+style = 'bold green'
+
+
 command_timeout = 5000
 # Disable the blank line at the start of the prompt
 # add_newline = false
@@ -33,7 +57,7 @@ command_timeout = 5000
 show_always = true
 style_user = "bg:#3B4252"
 style_root = "bg:#3B4252"
-format = '[$user ]($style)'
+format = '[   ]($style)'
 
 [directory]
 style = "bg:#434C5E"
@@ -89,7 +113,7 @@ style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
 [haskell]
-symbol = " "
+symbol = "Ⲗ "
 style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
@@ -126,4 +150,23 @@ format = '[ $symbol ($version) ]($style)'
 disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#33658A"
-format = '[ $time ]($style)'
+format = '[$time ⏲ ]($style)' 
+
+
+[cmd_duration]
+min_time = 5000
+show_notifications = true 
+style = "fg:blue bg:000000"
+format = "[TOOK $duration ⏲ ]($style)"
+ 
+
+
+[character]
+
+success_symbol = "[ ❨succeeded❩](bold italic green)"
+error_symbol = "[ ❨failed❩](bold italic red)"
+# .................................................................
+#  TOOK 1m55s   
+# .................................................................
+
+ 
