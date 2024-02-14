@@ -58,7 +58,7 @@ checkEnv() {
 
 installDepend() {
     ## Check for dependencies.
-    DEPENDENCIES='autojump bash command-not-found bash-completion tar neovim bat'
+    DEPENDENCIES='autojump neofetch bash bash-completion tar neovim bat'
     echo -e "${YELLOW}Installing dependencies...${RC}"
     if [[ $PACKAGER == "pacman" ]]; then
         if ! command_exists yay; then

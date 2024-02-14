@@ -1,14 +1,14 @@
-#                                 
+#                                        
 format = """
-[╭](#3B4252)\
+[╭](#f92672)\
 $python\
 $username\
-[](bg:#434C5E fg:#3B4252)\
+[](bg:#a6e22e fg:#f92672)\
 $directory\
-[](fg:#434C5E bg:#4C566A)\
+[](fg:#a6e22e bg:#66d9ef)\
 $git_branch\
 $git_status\
-[](fg:#4C566A bg:#86BBD8)\
+[](fg:#66d9ef bg:#fd971f00)\
 $c\
 $elixir\
 $elm\
@@ -19,9 +19,9 @@ $julia\
 $nodejs\
 $nim\
 $rust\
-[](fg:#86BBD8 bg:#06969A)\
+[](fg:#ae81ff bg:#ae81ff)\
 $docker_context\
-[](fg:#06969A bg:#33658A)\
+[](bold italic fg:#ae81ff bg:#33658A)\
 [](#33658A)\
 $fill\
 $fill\
@@ -37,30 +37,30 @@ $fill\
 $fill\
 $fill\
 $fill\
-[](#33658A)\
+[](#f92672)\
 $time\
-[\n│](fg:#33658A)\
-[\n╰────  ](fg:#33658A)\
+[\n│](fg:#f92672)\
+[\n╰────  ](fg:#f92672)\
 """
 
-[fill]
-symbol = ' '
-style = 'bold green'
 
 
 command_timeout = 5000
 # Disable the blank line at the start of the prompt
 # add_newline = false
+[fill]
+symbol = ' '
+style = 'bold green'
 
 # You can also replace your username with a neat symbol like  to save some space
 [username]
 show_always = true
-style_user = "bg:#3B4252"
-style_root = "bg:#3B4252"
+style_user = "bg:#f92672"
+style_root = "bg:#f92672"
 format = '[   ]($style)'
 
 [directory]
-style = "bg:#434C5E"
+style = "bg:#a6e22e fg:#000000"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -80,93 +80,92 @@ truncation_symbol = "…/"
 
 [c]
 symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:#fd971f00 fg:#0000ff"
+format = '[ $symbol ($version) ]($style)'
+detect_folders = ['Vendor' , 'vendor']
+detect_extensions = ['c', 'h' , 'hpp' , 'cpp']
+
 
 [docker_context]
 symbol = " "
-style = "bg:#06969A"
+style = "bg:#ae81ff"
 format = '[ $symbol $context ]($style) $path'
 
 [elixir]
 symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:#fd971f00"
+format = '[ $symbol ($version) ]($style)'
 
 [elm]
 symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:#fd971f00"
+format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
 symbol = ""
-style = "bg:#4C566A"
+style = "bg:#66d9ef fg:#3b3b3b"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:#4C566A"
+style = "bg:#66d9ef fg:#3b3b3b"
 format = '[$all_status$ahead_behind ]($style)'
 
 [golang]
 symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:#fd971f00"
+format = '[ $symbol ($version) ]($style)'
 
 [haskell]
 symbol = "Ⲗ "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:#fd971f00"
+format = '[ $symbol ($version) ]($style)'
 
 [java]
 symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:#fd971f00"
+format = '[ $symbol ($version) ]($style)'
 
 [julia]
 symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:#fd971f00"
+format = '[ $symbol ($version) ]($style)'
 
 [nodejs]
 symbol = ""
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:#fd971f00"
+format = '[ $symbol ($version) ]($style)'
 
 [nim]
 symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:#fd971f00"
+format = '[ $symbol ($version) ]($style)'
 
 [python]
-style = "bg:#3B4252"
+style = "bg:#f92672"
 format = '[(\($virtualenv\) )]($style)'
 
 [rust]
 symbol = ""
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:#fd971f00 fg:#ff0000"
+format = '[ $symbol ($version) ]($style)'
 
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
-style = "bg:#33658A"
-format = '[$time ⏲ ]($style)' 
+style = "bg:#f92672"
+format = '[$time ⏲ ]($style)'
 
 
 [cmd_duration]
 min_time = 5000
-show_notifications = true 
+show_notifications = true
 style = "fg:blue bg:000000"
 format = "[TOOK $duration ⏲ ]($style)"
- 
+
 
 
 [character]
 
 success_symbol = "[ ❨succeeded❩](bold italic green)"
 error_symbol = "[ ❨failed❩](bold italic red)"
-# .................................................................
-#  TOOK 1m55s   
-# .................................................................
 
- 
