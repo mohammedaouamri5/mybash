@@ -19,9 +19,10 @@ $julia\
 $nodejs\
 $nim\
 $rust\
-[](fg:#ae81ff bg:#ae81ff)\
+[](fg:#ae81ff bg:#ae81ff00)\
+[](fg:#ae81ff bg:#ae81ff)\
 $docker_context\
-[](bold italic fg:#ae81ff bg:#33658A)\
+[](fg:#ae81ff bg:#33658A)\
 [](#33658A)\
 $fill\
 $fill\
@@ -81,7 +82,7 @@ truncation_symbol = "…/"
 [c]
 symbol = " "
 style = "bg:#fd971f00 fg:#0000ff"
-format = '[ $symbol ($version) ]($style)'
+format = '[ $symbol ($version) ]($style)'
 detect_folders = ['Vendor' , 'vendor']
 detect_extensions = ['c', 'h' , 'hpp' , 'cpp']
 
@@ -94,12 +95,12 @@ format = '[ $symbol $context ]($style) $path'
 [elixir]
 symbol = " "
 style = "bg:#fd971f00"
-format = '[ $symbol ($version) ]($style)'
+format = '[ $symbol ($version) ]($style)'
 
 [elm]
 symbol = " "
 style = "bg:#fd971f00"
-format = '[ $symbol ($version) ]($style)'
+format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
 symbol = ""
@@ -113,32 +114,32 @@ format = '[$all_status$ahead_behind ]($style)'
 [golang]
 symbol = " "
 style = "bg:#fd971f00"
-format = '[ $symbol ($version) ]($style)'
+format = '[ $symbol ($version) ]($style)'
 
 [haskell]
 symbol = "Ⲗ "
 style = "bg:#fd971f00"
-format = '[ $symbol ($version) ]($style)'
+format = '[ $symbol ($version) ]($style)'
 
 [java]
 symbol = " "
 style = "bg:#fd971f00"
-format = '[ $symbol ($version) ]($style)'
+format = '[ $symbol ($version) ]($style)'
 
 [julia]
 symbol = " "
 style = "bg:#fd971f00"
-format = '[ $symbol ($version) ]($style)'
+format = '[ $symbol ($version) ]($style)'
 
 [nodejs]
 symbol = ""
 style = "bg:#fd971f00"
-format = '[ $symbol ($version) ]($style)'
+format = '[ $symbol ($version) ]($style)'
 
 [nim]
 symbol = " "
 style = "bg:#fd971f00"
-format = '[ $symbol ($version) ]($style)'
+format = '[ $symbol ($version) ]($style)'
 
 [python]
 style = "bg:#f92672"
@@ -147,25 +148,26 @@ format = '[(\($virtualenv\) )]($style)'
 [rust]
 symbol = ""
 style = "bg:#fd971f00 fg:#ff0000"
-format = '[ $symbol ($version) ]($style)'
+format = '[ $symbol ($version) ]($style)'
 
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#f92672"
-format = '[$time ⏲ ]($style)'
+format = '[$time ⏲ ]($style)' 
 
 
 [cmd_duration]
 min_time = 5000
-show_notifications = true
+show_notifications = true 
 style = "fg:blue bg:000000"
-format = "[TOOK $duration ⏲ ]($style)"
-
+format = "[ TOOK $duration ⏲ ]($style)"
+ 
 
 
 [character]
 
 success_symbol = "[ ❨succeeded❩](bold italic green)"
 error_symbol = "[ ❨failed❩](bold italic red)"
-
+ 
+ 

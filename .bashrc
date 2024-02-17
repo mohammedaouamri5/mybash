@@ -301,6 +301,9 @@ alias ls='exa --icons -F -H --group-directories-first --git -1'
 alias ll='exa -aulhH  --no-user --time-style long-iso  --icons  '
 
 
+alias neofetch="neofetch --source ~/.config/neofetch/logo"
+
+
 # Extracts any archive(s) (if unp isn't installed)
 extract () {
 	for archive in "$@"; do

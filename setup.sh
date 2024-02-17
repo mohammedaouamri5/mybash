@@ -56,6 +56,9 @@ checkEnv() {
     
 }
 
+
+
+
 installDepend() {
     ## Check for dependencies.
     DEPENDENCIES='autojump neofetch bash bash-completion tar neovim bat'
